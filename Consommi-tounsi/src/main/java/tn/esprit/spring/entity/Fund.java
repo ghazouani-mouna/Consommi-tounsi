@@ -14,18 +14,17 @@ public class Fund implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_fund;
-	//float
-	private float amount;
+	private double amount;
 	public int getId_fund() {
 		return id_fund;
 	}
 	public void setId_fund(int id_fund) {
 		this.id_fund = id_fund;
 	}
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
-	public void setAmount(float amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 	@ManyToOne

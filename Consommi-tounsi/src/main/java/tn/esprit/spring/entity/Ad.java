@@ -2,11 +2,13 @@ package tn.esprit.spring.entity;
 
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 //import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -19,7 +21,7 @@ public class Ad {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id_ad;
-	private int cost;
+	private double cost;
 	private int views;
 	
 	@Temporal(TemporalType.DATE)
@@ -31,16 +33,19 @@ public class Ad {
 	private String targeted_population;
 	private String ad_name;
 	private boolean status;  
-	
-	
-	//@OneToMany (cascade = CascadeType.ALL, mappedBy="ad")
-		//private Set<Admin> admin;
-	
+	@ManyToMany
+	private List<Product> products;
+	public List<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 	public Ad() {
 		super();
 	}
 	
-	public Ad(int id_ad,int cost,int views, Date start_date,Date end_date, String communication_channel,String targeted_population, String ad_name,boolean status ) {
+	public Ad(int id_ad,double cost,int views, Date start_date,Date end_date, String communication_channel,String targeted_population, String ad_name,boolean status ) {
 		super();
 		this.id_ad = id_ad;
 		this.cost = cost;
@@ -59,10 +64,10 @@ public class Ad {
 	public void setIdad(int id_ad) {
 		this.id_ad = id_ad;
 	}
-	public int getCost() {
+	public double getCost() {
 		return cost;
 	}
-	public void setCost(int cost) {
+	public void setCost(double cost) {
 		this.cost = cost;
 	}
 	public int getViews() {

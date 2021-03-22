@@ -1,14 +1,18 @@
 package tn.esprit.spring.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class SubjectForum implements Serializable {
@@ -22,13 +26,47 @@ public class SubjectForum implements Serializable {
 	private int id_subject;
 	private String subject;
 	private String title;
+	@Temporal(TemporalType.DATE)
+	private Date date_subject;
 	private int number_LikesSubject;
 	
-	@OneToMany(mappedBy="subjectforum")
+	@OneToMany(mappedBy="subjectforum",cascade=CascadeType.REMOVE)
 	private List<Comment> comment;
+	
+	@OneToMany(mappedBy="subjectforum",cascade=CascadeType.REMOVE)
+	private List<RatingSubject> ratingsubject;
 	
 	@ManyToMany
 	private List<Client> listclient;
+
+	public Date getDate_subject() {
+		return date_subject;
+	}
+	public void setDate_subject(Date date_subject) {
+		this.date_subject = date_subject;
+	}
+	public List<Comment> getComment() {
+		return comment;
+	}
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
+	}
+	public List<RatingSubject> getRatingsubject() {
+		return ratingsubject;
+	}
+	public void setRatingsubject(List<RatingSubject> ratingsubject) {
+		this.ratingsubject = ratingsubject;
+	}
+	public List<Client> getListclient() {
+		return listclient;
+	}
+	public void setListclient(List<Client> listclient) {
+		this.listclient = listclient;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	public int getId_subject() {
 		return id_subject;
 	}

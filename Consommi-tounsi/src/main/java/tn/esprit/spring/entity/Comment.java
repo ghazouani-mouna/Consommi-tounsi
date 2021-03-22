@@ -20,8 +20,6 @@ public class Comment implements Serializable {
 	
 	@ManyToOne
 	private SubjectForum subjectforum;
-	@ManyToOne
-	//private User user;
 	
 	
 	
@@ -31,12 +29,19 @@ public class Comment implements Serializable {
 	public void setId_comment(int id_comment) {
 		this.id_comment = id_comment;
 	}
-//	public int getId_user() {
-//		return id_user;
-//	}
-//	public void setId_user(int id_user) {
-//		this.id_user = id_user;
-//	}
+
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	public SubjectForum getSubjectforum() {
+		return subjectforum;
+	}
+	public void setSubjectforum(SubjectForum subjectforum) {
+		this.subjectforum = subjectforum;
+	}
 	public String getText_comment() {
 		return text_comment;
 	}

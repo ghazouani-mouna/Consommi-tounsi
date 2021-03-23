@@ -11,6 +11,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Donation implements Serializable {
 
+	
 	/**
 	 * 
 	 */
@@ -33,6 +34,30 @@ public class Donation implements Serializable {
 	public Donation() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "Donation [id_donation=" + id_donation + ", cart=" + cart + "]";
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id_donation;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Donation other = (Donation) obj;
+		if (id_donation != other.id_donation)
+			return false;
+		return true;
 	}
 	
 }

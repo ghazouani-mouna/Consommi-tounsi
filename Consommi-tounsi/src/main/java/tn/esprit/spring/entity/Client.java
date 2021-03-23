@@ -18,8 +18,6 @@ public class Client extends User  {
     private int id_user;
 	
 	
-	@OneToMany(mappedBy="client")
-	private List<Fund> funds;
 	
 	@ManyToMany(mappedBy="listclient")
 	private List<Event> listevent;

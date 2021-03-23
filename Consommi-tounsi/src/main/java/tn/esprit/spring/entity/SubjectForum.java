@@ -39,11 +39,54 @@ public class SubjectForum implements Serializable {
 	@ManyToMany
 	private List<Client> listclient;
 
+
+	public SubjectForum(int id_subject, String subject, String title, int number_LikesSubject) {
+		super();
+		this.id_subject = id_subject;
+		this.subject = subject;
+		this.title = title;
+		this.number_LikesSubject = number_LikesSubject;
+	}
+	public SubjectForum(int id_subject, String subject, String title) {
+		super();
+		this.id_subject = id_subject;
+		this.subject = subject;
+		this.title = title;
+		
+	}
+	public SubjectForum() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public int getId_subject() {
+		return id_subject;
+	}
+	public void setId_subject(int id_subject) {
+		this.id_subject = id_subject;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public Date getDate_subject() {
 		return date_subject;
 	}
 	public void setDate_subject(Date date_subject) {
 		this.date_subject = date_subject;
+	}
+	public int getNumber_LikesSubject() {
+		return number_LikesSubject;
+	}
+	public void setNumber_LikesSubject(int number_LikesSubject) {
+		this.number_LikesSubject = number_LikesSubject;
 	}
 	public List<Comment> getComment() {
 		return comment;
@@ -67,41 +110,6 @@ public class SubjectForum implements Serializable {
 		return serialVersionUID;
 	}
 	
-	public int getId_subject() {
-		return id_subject;
-	}
-	public void setId_subject(int id_subject) {
-		this.id_subject = id_subject;
-	}
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public int getNumber_LikesSubject() {
-		return number_LikesSubject;
-	}
-	public void setNumber_LikesSubject(int number_LikesSubject) {
-		this.number_LikesSubject = number_LikesSubject;
-	}
-	public SubjectForum(int id_subject, String subject, String title, int number_LikesSubject) {
-		super();
-		this.id_subject = id_subject;
-		this.subject = subject;
-		this.title = title;
-		this.number_LikesSubject = number_LikesSubject;
-	}
-	public SubjectForum() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	
 	
 }
